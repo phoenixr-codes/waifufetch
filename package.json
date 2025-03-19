@@ -1,0 +1,28 @@
+{
+  "name": "waifufetch",
+  "version": "0.1.0",
+  "module": "src/index.ts",
+  "main": "./src/lib.ts",
+  "bin": {
+    "waifufetch": "./src/index.ts"
+  },
+  "scripts": {
+    "doc": "typedoc ./src/config.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/yargs": "^17.0.33",
+    "typedoc": "^0.28.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "cliui": "^8.0.1",
+    "commander": "^13.1.0",
+    "consola": "^3.4.0",
+    "zod": "^3.24.2"
+  }
+}
