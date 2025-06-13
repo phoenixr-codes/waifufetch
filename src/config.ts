@@ -2,6 +2,8 @@ import { homedir } from "os";
 import path from "path";
 import { z } from "zod";
 
+var args: string[];
+
 /** A pair of icon and text or just text. */
 const Content = z.object({
   icon: z.optional(z.string()),
@@ -67,7 +69,7 @@ function defaultConfigPaths(): string[] {
 }
 
 /** Loads the configuration from a default or custom path and uses fallback values on missing options. */
-export async function loadConfig(): Promise<Config> {
+export async function loadConfig(args: string[]): Promise<Config> {
   let configPathCandidates: string[];
   const customConfigPath: string | undefined = process.env.WAIFUFETCH_CONFIG;
   if (customConfigPath === undefined) {
@@ -81,6 +83,7 @@ export async function loadConfig(): Promise<Config> {
   let userConfig = undefined;
   for (const candidate of configPathCandidates) {
     if (await Bun.file(candidate).exists()) {
+      globalThis.args = args;
       userConfig = (await import(candidate)).default;
       break;
     }
@@ -106,7 +109,7 @@ export const fallbackConfig: Config = {
       padding: [0, 5, 0, 2],
     },
     dashboard: {
-      padding: [1, 1, 1, 1],
+      padding: [0, 0, 0, 0],
       spaceBetween: 3,
     }
   },

@@ -13,8 +13,8 @@ const cli = new Command();
 
 cli.name("waifufetch").description("A neofetch alternative");
 
-cli.command("run", { isDefault: true }).action(async () => {
-  const config = await loadConfig();
+cli.command("run", { isDefault: true }).allowUnknownOption(true).allowExcessArguments(true).action(async (_name, options, _command) => {
+  const config = await loadConfig(options.args);
   draw(config);
 });
 
