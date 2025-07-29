@@ -2,7 +2,7 @@
     <code>$ waifufetch &gt;ω&lt;</code>
 </h1>
 <p align="center">
-    <img src="./assets/waifu.png" />
+    <img width="35%" src="./assets/waifu.svg" />
 </p>
 <p align="center">
     A <a href="https://github.com/dylanaraps/neofetch/">neofetch</a> alternative
