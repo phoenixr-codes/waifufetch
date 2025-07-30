@@ -49,9 +49,10 @@ waifufetch
 You can use [TypeScript][], JavaScript or JSON for your configuration file. **waifufetch** searches for
 any of these files in the given order and uses the first match:
 
-1. `~/.config/waifufetch/config.ts`
-2. `~/.config/waifufetch/config.js`
-3. `~/.config/waifufetch/config.json`
+1. `$WAIFUFETCH_CONFIG`
+2. `~/.config/waifufetch/config.ts`
+3. `~/.config/waifufetch/config.js`
+4. `~/.config/waifufetch/config.json`
 
 > [!TIP]
 > You can invoke an external script from [TypeScript][] or JavaScript that prints the configuration in JSON
